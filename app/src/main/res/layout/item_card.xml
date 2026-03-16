@@ -47,7 +47,7 @@
         android:id="@+id/tvCardName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="???"
+        android:text=""
         android:textColor="@color/poolrooms_text"
         android:textSize="10sp"
         android:gravity="center"
@@ -60,7 +60,7 @@
         android:id="@+id/tvRarity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="???"
+        android:text=""
         android:textSize="9sp"
         android:gravity="center"
         android:paddingBottom="4dp"/>
