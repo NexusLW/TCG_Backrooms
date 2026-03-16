@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/poolrooms_bg"
+    android:padding="24dp">
+
+    <!--the full card image, tap it to go back-->
+    <!--la imagen completa de la carta, tocala para volver-->
+    <ImageView
+        android:id="@+id/ivDetail"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:layout_marginBottom="24dp"/>
+
+    <!--card name-->
+    <TextView
+        android:id="@+id/tvDetailName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/poolrooms_text"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <!--rarity label, color set from activity-->
+    <!--etiqueta de rareza, color puesto desde la actividad-->
+    <TextView
+        android:id="@+id/tvDetailRarity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="14sp"
+        android:fontFamily="monospace"/>
+
+    <!--small hint so the user knows they can tap to close-->
+    <!--pequeña pista para que el usuario sepa que puede tocar para cerrar-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tap card to close"
+        android:textColor="@color/poolrooms_secondary"
+        android:textSize="11sp"
+        android:fontFamily="monospace"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>

@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Level 0",
+    "imageFilename": "card_level0",
+    "rarity": "common",
+    "category": "levels"
+  },
+  {
+    "name": "The Poolrooms",
+    "imageFilename": "card_poolrooms",
+    "rarity": "uncommon",
+    "category": "levels"
+  },
+  {
+    "name": "The Void",
+    "imageFilename": "card_void",
+    "rarity": "legendary",
+    "category": "levels"
+  },
+  {
+    "name": "Smiler",
+    "imageFilename": "card_smiler",
+    "rarity": "rare",
+    "category": "entities"
+  },
+  {
+    "name": "Hound",
+    "imageFilename": "card_hound",
+    "rarity": "rare",
+    "category": "entities"
+  },
+  {
+    "name": "Deathmoths",
+    "imageFilename": "card_deathmoth",
+    "rarity": "rare",
+    "category": "entities"
+  },
+  {
+    "name": "Almond Water",
+    "imageFilename": "card_almond_water",
+    "rarity": "common",
+    "category": "items"
+  },
+  {
+    "name": "Liquid Pain",
+    "imageFilename": "card_liquid_pain",
+    "rarity": "common",
+    "category": "items"
+  }
+]

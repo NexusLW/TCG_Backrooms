@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="8dp">
+
+    <!--left line-->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        android:background="@color/poolrooms_secondary"/>
+
+    <!--section title like "Levels", "Entities", "Items"-->
+    <!--titulo de seccion como "Levels", "Entities", "Items"-->
+    <TextView
+        android:id="@+id/tvSectionHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Levels"
+        android:textColor="@color/poolrooms_text"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"/>
+
+    <!--right line-->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        android:background="@color/poolrooms_secondary"/>
+
+</LinearLayout>

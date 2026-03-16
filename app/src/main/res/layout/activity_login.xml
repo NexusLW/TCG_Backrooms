@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp"
+    android:background="@color/level0_bg">
+
+    <!--app title-->
+    <TextView
+        android:id="@+id/tvAppTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BACKROOMS TCG"
+        android:textColor="@color/level0_text"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.2"
+        android:layout_marginBottom="4dp"/>
+
+    <!--little creepy subtitle-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="you shouldn't be here."
+        android:textColor="@color/level0_secondary"
+        android:textSize="12sp"
+        android:fontFamily="monospace"
+        android:layout_marginBottom="48dp"/>
+
+    <!--form container-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/level0_surface"
+        android:padding="24dp">
+
+        <!--title changes between "Welcome Back" and "Create Account" depending on mode-->
+        <!--el titulo cambia entre los dos modos desde LoginActivity-->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome Back"
+            android:textColor="@color/level0_text"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp"/>
+
+        <!--username input-->
+        <EditText
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:textColor="@color/level0_text"
+            android:textColorHint="@color/level0_secondary"
+            android:backgroundTint="@color/level0_button"
+            android:inputType="text"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!--password input-->
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:textColor="@color/level0_text"
+            android:textColorHint="@color/level0_secondary"
+            android:backgroundTint="@color/level0_button"
+            android:inputType="textPassword"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_marginBottom="24dp"/>
+
+        <!--main button - logs in or registers depending on mode-->
+        <Button
+            android:id="@+id/btnAccept"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Log In"
+            android:backgroundTint="@color/level0_button"
+            android:textColor="@color/level0_text"
+            android:layout_marginBottom="8dp"/>
+
+        <!--closes the app-->
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:backgroundTint="@color/level0_surface"
+            android:textColor="@color/level0_secondary"
+            android:layout_marginBottom="16dp"/>
+
+        <!--tapping this switches between login and register mode-->
+        <TextView
+            android:id="@+id/tvSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No account? Register here"
+            android:textColor="@color/level0_button"
+            android:textSize="13sp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+</LinearLayout>

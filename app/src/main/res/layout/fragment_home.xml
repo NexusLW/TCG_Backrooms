@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="24dp"
+    android:background="@color/poolrooms_bg">
+
+    <!--title-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Daily Packs"
+        android:textColor="@color/poolrooms_text"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <!--shows how many packs are left today, updated from the fragment-->
+    <!--muestra cuantos sobres quedan hoy, actualizado desde el fragmento-->
+    <TextView
+        android:id="@+id/tvPacksInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3 packs remaining today"
+        android:textColor="@color/poolrooms_secondary"
+        android:textSize="13sp"
+        android:fontFamily="monospace"
+        android:layout_marginBottom="40dp"/>
+
+    <!--the three pack buttons-->
+    <!--los tres botones de sobre-->
+    <Button
+        android:id="@+id/btnPack1"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:text="Open Pack 1"
+        android:backgroundTint="@color/poolrooms_button"
+        android:textColor="@color/poolrooms_text"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnPack2"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:text="Open Pack 2"
+        android:backgroundTint="@color/poolrooms_button"
+        android:textColor="@color/poolrooms_text"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnPack3"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:text="Open Pack 3"
+        android:backgroundTint="@color/poolrooms_button"
+        android:textColor="@color/poolrooms_text"
+        android:layout_marginBottom="40dp"/>
+
+    <!--shows the cards found after opening a pack, or messages like "come back tomorrow"-->
+    <!--muestra las cartas encontradas al abrir un sobre, o mensajes como "vuelve manana"-->
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/poolrooms_text"
+        android:textSize="14sp"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"/>
+
+</LinearLayout>

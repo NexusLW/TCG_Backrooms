@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Level 0 theme - login/register screen -->
+    <!-- dark yellowish background, like the backrooms wallpaper -->
+    <color name="level0_bg">#1A1800</color>
+    <!--slightly lighter for input fields and surfaces-->
+    <color name="level0_surface">#2A2500</color>
+    <!--pale yellow for text-->
+    <color name="level0_text">#E8D5A0</color>
+    <!--dark amber for buttons-->
+    <color name="level0_button">#8B7535</color>
+    <!--muted olive for secondary text and hints-->
+    <color name="level0_secondary">#5C5020</color>
+
+    <!-- Poolrooms theme - main screen -->
+    <!--deep dark cyan, like looking into the pool-->
+    <color name="poolrooms_bg">#0A1A20</color>
+    <!--slightly lighter for tabs and surfaces-->
+    <color name="poolrooms_surface">#0D2530</color>
+    <!--pale pool blue for text-->
+    <color name="poolrooms_text">#B8E8F0</color>
+    <!--muted teal for buttons and highlights-->
+    <color name="poolrooms_button">#2A8FA8</color>
+    <!--darker teal for secondary stuff-->
+    <color name="poolrooms_secondary">#1A5F75</color>
+
+    <!-- rarity colors for collection cards -->
+    <color name="rarity_common">#A0A0A0</color>
+    <color name="rarity_uncommon">#4CAF50</color>
+    <color name="rarity_rare">#2196F3</color>
+    <color name="rarity_legendary">#FF9800</color>
+
+</resources>
