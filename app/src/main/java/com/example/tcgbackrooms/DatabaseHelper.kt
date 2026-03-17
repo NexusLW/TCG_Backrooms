@@ -143,7 +143,6 @@ class DatabaseHelper(context: Context) :
         cv.put(USERNAME, username)
         cv.put(PASSWORD, md5(password))
         val result = db.insert(TABLE_USERS, null, cv)
-        db.close()
         //insert returns -1 if it failed due to duplicate username
         //insert devuelve -1 si fallo por nombre de usuario duplicado
         return result != -1L
@@ -166,7 +165,6 @@ class DatabaseHelper(context: Context) :
             userId = cursor.getInt(0)
         }
         cursor.close()
-        db.close()
         return userId
     }
 
@@ -200,7 +198,6 @@ class DatabaseHelper(context: Context) :
             list.add(Card(id, name, image, rarity, category, count))
         }
         cursor.close()
-        db.close()
         return list
     }
 
@@ -220,7 +217,6 @@ class DatabaseHelper(context: Context) :
             list.add(Card(id, name, image, rarity, category))
         }
         cursor.close()
-        db.close()
         return list
     }
 
@@ -259,7 +255,6 @@ class DatabaseHelper(context: Context) :
             db.insert(TABLE_USER_CARDS, null, cv)
         }
         cursor.close()
-        db.close()
     }
 
     //removes one copy of a card from the user, if count reaches 0 the card becomes locked again
@@ -287,6 +282,5 @@ class DatabaseHelper(context: Context) :
             )
         }
         cursor.close()
-        db.close()
     }
 }
