@@ -11,9 +11,7 @@
 
         <!--login is the entry point of the app-->
         <!--el login es el punto de entrada de la app-->
-        <activity
-            android:name=".LoginActivity"
-            android:exported="true">
+        <activity android:name=".LoginActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -22,15 +20,13 @@
 
         <!--main screen with the two tabs-->
         <!--pantalla principal con las dos pestanas-->
-        <activity
-            android:name=".MainActivity"
-            android:exported="false"/>
+        <activity android:name=".MainActivity" android:exported="false"/>
 
         <!--fullscreen card detail, opened when tapping an unlocked card-->
         <!--detalle de carta en pantalla completa, se abre al tocar una carta desbloqueada-->
-        <activity
-            android:name=".CardDetailActivity"
-            android:exported="false"/>
+        <activity android:name=".CardDetailActivity" android:exported="false"/>
+
+        <activity android:name=".CreateCardActivity" android:exported="false"/>
 
     </application>
 

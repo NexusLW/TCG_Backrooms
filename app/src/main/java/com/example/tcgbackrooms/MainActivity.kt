@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
 
         tvWelcome.text = "welcome, $username"
 
-        //set up the viewpager with our two fragments
-        //configurar el viewpager con nuestros dos fragmentos
+        //set up the viewpager with our three fragments
+        //configurar el viewpager con nuestros tres fragmentos
         viewPager.adapter = MainPagerAdapter(this)
 
         //connect the tab layout to the viewpager so they stay in sync
@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
             tab.text = when (position) {
                 0 -> "Packs"
                 1 -> "Collection"
+                2 -> "My Cards"
                 else -> ""
             }
         }.attach()
@@ -52,16 +53,17 @@ class MainActivity : AppCompatActivity() {
 
     //-------Pager adapter / Adaptador del pager-------
 
-    //simple adapter that holds the two fragments
-    //adaptador simple que contiene los dos fragmentos
+    //simple adapter that holds the three fragments
+    //adaptador simple que contiene los tres fragmentos
     private inner class MainPagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity) {
 
-        override fun getItemCount(): Int = 2
+        override fun getItemCount(): Int = 3
 
         override fun createFragment(position: Int): Fragment {
             return when (position) {
                 0 -> HomeFragment()
                 1 -> CollectionFragment()
+                2 -> CustomCollectionFragment()
                 else -> HomeFragment()
             }
         }

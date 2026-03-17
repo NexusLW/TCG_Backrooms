@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- coordinator layout is needed so the fab floats above the recyclerview correctly -->
+<!-- coordinator layout es necesario para que el fab flote sobre el recyclerview correctamente -->
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/poolrooms_bg">
+
+    <!-- recyclerview that shows the user's custom cards in a 3-column grid -->
+    <!-- recyclerview que muestra las cartas personalizadas del usuario en rejilla de 3 columnas -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCustom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:clipToPadding="false"/>
+
+    <!-- fab in the bottom right corner opens CreateCardActivity -->
+    <!-- fab en la esquina inferior derecha abre CreateCardActivity -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCreateCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:contentDescription="Create card"
+        app:srcCompat="@android:drawable/ic_input_add"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

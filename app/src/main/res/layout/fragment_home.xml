@@ -1,75 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
-    android:padding="24dp"
     android:background="@color/poolrooms_bg">
 
-    <!--title-->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Daily Packs"
-        android:textColor="@color/poolrooms_text"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp"/>
+    <!-- PACKS VIEW -->
+    <LinearLayout
+        android:id="@+id/packsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp">
 
-    <!--shows how many packs are left today, updated from the fragment-->
-    <!--muestra cuantos sobres quedan hoy, actualizado desde el fragmento-->
-    <TextView
-        android:id="@+id/tvPacksInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3 packs remaining today"
-        android:textColor="@color/poolrooms_secondary"
-        android:textSize="13sp"
-        android:fontFamily="monospace"
-        android:layout_marginBottom="40dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daily Packs"
+            android:textColor="@color/poolrooms_text"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
 
-    <!--the three pack buttons-->
-    <!--los tres botones de sobre-->
-    <Button
-        android:id="@+id/btnPack1"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:text="Open Pack 1"
-        android:backgroundTint="@color/poolrooms_button"
-        android:textColor="@color/poolrooms_text"
-        android:layout_marginBottom="16dp"/>
+        <TextView
+            android:id="@+id/tvPacksInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3 packs remaining today"
+            android:textColor="@color/poolrooms_secondary"
+            android:textSize="13sp"
+            android:fontFamily="monospace"
+            android:layout_marginBottom="40dp"/>
 
-    <Button
-        android:id="@+id/btnPack2"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:text="Open Pack 2"
-        android:backgroundTint="@color/poolrooms_button"
-        android:textColor="@color/poolrooms_text"
-        android:layout_marginBottom="16dp"/>
+        <!-- 1 big pack centered -->
+        <FrameLayout
+            android:id="@+id/packBig"
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="40dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/card_pack"
+                android:scaleType="fitCenter"/>
+        </FrameLayout>
 
-    <Button
-        android:id="@+id/btnPack3"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:text="Open Pack 3"
-        android:backgroundTint="@color/poolrooms_button"
-        android:textColor="@color/poolrooms_text"
-        android:layout_marginBottom="40dp"/>
+        <TextView
+            android:id="@+id/tvPacksStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/poolrooms_text"
+            android:textSize="14sp"
+            android:fontFamily="monospace"
+            android:layout_marginTop="40dp"
+            android:gravity="center"/>
+    </LinearLayout>
 
-    <!--shows the cards found after opening a pack, or messages like "come back tomorrow"-->
-    <!--muestra las cartas encontradas al abrir un sobre, o mensajes como "vuelve manana"-->
-    <TextView
-        android:id="@+id/tvResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textColor="@color/poolrooms_text"
-        android:textSize="14sp"
-        android:fontFamily="monospace"
+    <!-- CARD REVEAL VIEW (hidden by default) -->
+    <LinearLayout
+        android:id="@+id/cardRevealContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         android:gravity="center"
-        android:lineSpacingExtra="4dp"/>
+        android:padding="24dp"
+        android:visibility="gone">
 
-</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cards Found"
+            android:textColor="@color/poolrooms_text"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- stacked card display -->
+        <FrameLayout
+            android:id="@+id/cardStack"
+            android:layout_width="180dp"
+            android:layout_height="280dp"
+            android:layout_marginBottom="32dp">
+            <!-- 5 card images will be added here programmatically, stacked -->
+        </FrameLayout>
+
+        <!-- tap hint -->
+        <TextView
+            android:id="@+id/tvSwipeHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tap to reveal next card"
+            android:textColor="@color/poolrooms_secondary"
+            android:textSize="12sp"
+            android:fontFamily="monospace"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- card counter -->
+        <TextView
+            android:id="@+id/tvCardCounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1 / 5"
+            android:textColor="@color/poolrooms_text"
+            android:textSize="14sp"
+            android:fontFamily="monospace"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- back button -->
+        <Button
+            android:id="@+id/btnBackToPacks"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:backgroundTint="@color/poolrooms_button"
+            android:textColor="@color/poolrooms_text"/>
+    </LinearLayout>
+
+</FrameLayout>

@@ -2,6 +2,7 @@ package com.example.tcgbackrooms
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -78,10 +79,7 @@ class CardAdapter(
     //maneja toda la logica de binding de la carta
     private fun bindCard(holder: CardViewHolder, card: Card) {
         if (card.unlocked) {
-            //resolve drawable name to actual resource id
-            //resolver nombre del drawable a id de recurso real
-            val resId = context.resources.getIdentifier(card.imageFilename, "drawable", context.packageName)
-            holder.ivCard.setImageResource(if (resId != 0) resId else R.drawable.card_back)
+            loadCardImage(holder.ivCard, card.imageFilename)
 
             holder.tvCardName.text = card.name
             holder.tvRarity.text = card.rarity
@@ -138,6 +136,33 @@ class CardAdapter(
 
             holder.itemView.setOnClickListener(null)
             holder.itemView.setOnLongClickListener(null)
+        }
+    }
+
+    //resolves an image filename to an actual image on the imageview
+    //resuelve un nombre de imagen a una imagen real en el imageview
+    //supports both bundled drawables and absolute file paths from the gallery
+    //soporta tanto drawables del proyecto como rutas absolutas de la galeria
+    private fun loadCardImage(imageView: ImageView, imageFilename: String) {
+        when {
+            //absolute path means it was picked from the gallery and copied to internal storage
+            //ruta absoluta significa que fue elegida de la galeria y copiada al almacenamiento interno
+            imageFilename.startsWith("/") -> {
+                val bitmap = BitmapFactory.decodeFile(imageFilename)
+                if (bitmap != null) {
+                    imageView.setImageBitmap(bitmap)
+                } else {
+                    //file is missing or unreadable, fall back to card back
+                    //el archivo falta o no se puede leer, usar el reverso como fallback
+                    imageView.setImageResource(R.drawable.card_back)
+                }
+            }
+            //otherwise try to resolve it as a drawable resource name
+            //si no, intentar resolverlo como nombre de recurso drawable
+            else -> {
+                val resId = context.resources.getIdentifier(imageFilename, "drawable", context.packageName)
+                imageView.setImageResource(if (resId != 0) resId else R.drawable.card_back)
+            }
         }
     }
 
