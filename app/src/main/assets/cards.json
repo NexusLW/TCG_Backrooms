@@ -1,6 +1,6 @@
 [
   {
-    "name": "Level 0",
+    "name": "Level 0 - The Lobby",
     "imageFilename": "card_level0",
     "rarity": "common",
     "category": "levels"
@@ -15,6 +15,72 @@
     "name": "The Void",
     "imageFilename": "card_void",
     "rarity": "legendary",
+    "category": "levels"
+  },
+  {
+    "name": "Level 1 - Lurking Danger",
+    "imageFilename": "card_level1",
+    "rarity": "common",
+    "category": "levels"
+  },
+  {
+    "name": "Level 2 - Pipe Dreams",
+    "imageFilename": "card_level2",
+    "rarity": "uncommon",
+    "category": "levels"
+  },
+  {
+    "name": "Level 3 - Electrical Prison",
+    "imageFilename": "card_level3",
+    "rarity": "uncommon",
+    "category": "levels"
+  },
+  {
+    "name": "Level 4 - Abandoned Office",
+    "imageFilename": "card_level4",
+    "rarity": "common",
+    "category": "levels"
+  },
+  {
+    "name": "Level 5 - Terror Hotel",
+    "imageFilename": "card_level5",
+    "rarity": "uncommon",
+    "category": "levels"
+  },
+  {
+    "name": "Level 6 - Lights Out",
+    "imageFilename": "card_level6",
+    "rarity": "rare",
+    "category": "levels"
+  },
+  {
+    "name": "Level 6.1 - The Snackrooms",
+    "imageFilename": "card_level6_1",
+    "rarity": "legendary",
+    "category": "levels"
+  },
+  {
+    "name": "Level 7 - Thalassophobia",
+    "imageFilename": "card_level7",
+    "rarity": "rare",
+    "category": "levels"
+  },
+  {
+    "name": "Level 8 - Cave System",
+    "imageFilename": "card_level8",
+    "rarity": "uncommon",
+    "category": "levels"
+  },
+  {
+    "name": "Level 9 - The Mangled Suburbs",
+    "imageFilename": "card_level9",
+    "rarity": "rare",
+    "category": "levels"
+  },
+  {
+    "name": "Level 10 - Barnhouse Village",
+    "imageFilename": "card_level10",
+    "rarity": "uncommon",
     "category": "levels"
   },
   {
@@ -36,6 +102,66 @@
     "category": "entities"
   },
   {
+    "name": "Skin-Stealer",
+    "imageFilename": "card_skin_stealer",
+    "rarity": "rare",
+    "category": "entities"
+  },
+  {
+    "name": "Faceling",
+    "imageFilename": "card_faceling",
+    "rarity": "common",
+    "category": "entities"
+  },
+  {
+    "name": "Clump",
+    "imageFilename": "card_clump",
+    "rarity": "rare",
+    "category": "entities"
+  },
+  {
+    "name": "Wretch",
+    "imageFilename": "card_wretch",
+    "rarity": "uncommon",
+    "category": "entities"
+  },
+  {
+    "name": "Partygoer",
+    "imageFilename": "card_partygoer",
+    "rarity": "rare",
+    "category": "entities"
+  },
+  {
+    "name": "Crawler",
+    "imageFilename": "card_crawler",
+    "rarity": "uncommon",
+    "category": "entities"
+  },
+  {
+    "name": "Windows",
+    "imageFilename": "card_windows",
+    "rarity": "rare",
+    "category": "entities"
+  },
+  {
+    "name": "Duller",
+    "imageFilename": "card_duller",
+    "rarity": "uncommon",
+    "category": "entities"
+  },
+  {
+    "name": "Jerry",
+    "imageFilename": "card_jerry",
+    "rarity": "legendary",
+    "category": "entities"
+  },
+  {
+    "name": "Insanity",
+    "imageFilename": "card_insanity",
+    "rarity": "legendary",
+    "category": "entities"
+  },
+  {
     "name": "Almond Water",
     "imageFilename": "card_almond_water",
     "rarity": "common",
@@ -45,6 +171,66 @@
     "name": "Liquid Pain",
     "imageFilename": "card_liquid_pain",
     "rarity": "common",
+    "category": "items"
+  },
+  {
+    "name": "Royal Rations",
+    "imageFilename": "card_royal_rations",
+    "rarity": "common",
+    "category": "items"
+  },
+  {
+    "name": "Smiler Repellent",
+    "imageFilename": "card_smiler_repellent",
+    "rarity": "rare",
+    "category": "items"
+  },
+  {
+    "name": "Deuclidator",
+    "imageFilename": "card_deuclidator",
+    "rarity": "legendary",
+    "category": "items"
+  },
+  {
+    "name": "Firesalt",
+    "imageFilename": "card_firesalt",
+    "rarity": "uncommon",
+    "category": "items"
+  },
+  {
+    "name": "Bottled Lightning",
+    "imageFilename": "card_bottled_lightning",
+    "rarity": "rare",
+    "category": "items"
+  },
+  {
+    "name": "Memory Milk",
+    "imageFilename": "card_memory_milk",
+    "rarity": "rare",
+    "category": "items"
+  },
+  {
+    "name": "M.E.G. Canteen",
+    "imageFilename": "card_meg_canteen",
+    "rarity": "common",
+    "category": "items"
+  },
+  {
+    "name": "Flashlight",
+    "imageFilename": "card_flashlight",
+    "rarity": "common",
+    "category": "items"
+  },
+  {
+    "name": "No-Clip Drug",
+    "imageFilename": "card_noclip_drug",
+    "rarity": "legendary",
+    "category": "items"
+  },
+  {
+    "name": "Jerry's Map",
+    "imageFilename": "card_jerrys_map",
+    "rarity": "rare",
     "category": "items"
   }
 ]
