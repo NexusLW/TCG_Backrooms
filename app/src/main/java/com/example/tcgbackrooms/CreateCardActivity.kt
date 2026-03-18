@@ -12,13 +12,13 @@ import java.io.FileOutputStream
 
 class CreateCardActivity : AppCompatActivity() {
 
-    private lateinit var etCardName: EditText
+    private lateinit var cardNameInput: EditText
     private lateinit var spinnerRarity: Spinner
     private lateinit var spinnerCategory: Spinner
-    private lateinit var ivPreview: ImageView
-    private lateinit var btnPickImage: Button
-    private lateinit var btnSave: Button
-    private lateinit var btnBack: Button
+    private lateinit var previewImage: ImageView
+    private lateinit var pickImageButton: Button
+    private lateinit var saveButton: Button
+    private lateinit var backButton: Button
 
     private lateinit var db: DatabaseHelper
 
@@ -39,7 +39,7 @@ class CreateCardActivity : AppCompatActivity() {
             //show a preview of the picked image
             //mostrar una vista previa de la imagen elegida
             val bitmap = BitmapFactory.decodeFile(savedImagePath)
-            if (bitmap != null) ivPreview.setImageBitmap(bitmap)
+            if (bitmap != null) previewImage.setImageBitmap(bitmap)
         }
     }
 
@@ -49,13 +49,13 @@ class CreateCardActivity : AppCompatActivity() {
 
         db = DatabaseHelper(this)
 
-        etCardName = findViewById(R.id.etCardName)
+        cardNameInput = findViewById(R.id.cardNameInput)
         spinnerRarity = findViewById(R.id.spinnerRarity)
         spinnerCategory = findViewById(R.id.spinnerCategory)
-        ivPreview = findViewById(R.id.ivPreview)
-        btnPickImage = findViewById(R.id.btnPickImage)
-        btnSave = findViewById(R.id.btnSave)
-        btnBack = findViewById(R.id.btnBack)
+        previewImage = findViewById(R.id.previewImage)
+        pickImageButton = findViewById(R.id.pickImageButton)
+        saveButton = findViewById(R.id.saveButton)
+        backButton = findViewById(R.id.backButton)
 
         //populate rarity spinner with the four possible values
         //rellenar el spinner de rareza con los cuatro valores posibles
@@ -75,23 +75,23 @@ class CreateCardActivity : AppCompatActivity() {
 
         //launch the system photo picker when the user taps pick image
         //lanzar el selector de fotos del sistema cuando el usuario pulsa elegir imagen
-        btnPickImage.setOnClickListener {
+        pickImageButton.setOnClickListener {
             pickImage.launch(
                 PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
             )
         }
 
-        btnSave.setOnClickListener { saveCard() }
+        saveButton.setOnClickListener { saveCard() }
 
         //cancel button just closes the activity without saving anything
         //el boton cancelar cierra la actividad sin guardar nada
-        btnBack.setOnClickListener { finish() }
+        backButton.setOnClickListener { finish() }
     }
 
     //validates the form, saves the card to the db, and returns ok to the caller
     //valida el formulario, guarda la carta en la db y devuelve ok al llamador
     private fun saveCard() {
-        val name = etCardName.text.toString().trim()
+        val name = cardNameInput.text.toString().trim()
 
         //name is the only mandatory field
         //el nombre es el unico campo obligatorio

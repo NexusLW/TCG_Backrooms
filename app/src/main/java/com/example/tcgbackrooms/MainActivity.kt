@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TabLayout
-    private lateinit var tvWelcome: TextView
+    private lateinit var welcomeText: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,9 +31,9 @@ class MainActivity : AppCompatActivity() {
 
         viewPager = findViewById(R.id.viewPager)
         tabLayout = findViewById(R.id.tabLayout)
-        tvWelcome = findViewById(R.id.tvWelcome)
+        welcomeText = findViewById(R.id.welcomeText)
 
-        tvWelcome.text = "welcome, $username"
+        welcomeText.text = "welcome, $username"
 
         //set up the viewpager with our three fragments
         //configurar el viewpager con nuestros tres fragmentos

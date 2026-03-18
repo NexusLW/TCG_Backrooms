@@ -24,7 +24,7 @@
             android:layout_marginBottom="8dp"/>
 
         <TextView
-            android:id="@+id/tvPacksInfo"
+            android:id="@+id/packsInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="3 packs remaining today"
@@ -47,7 +47,7 @@
         </FrameLayout>
 
         <TextView
-            android:id="@+id/tvPacksStatus"
+            android:id="@+id/packsStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
@@ -88,7 +88,7 @@
 
         <!-- tap hint -->
         <TextView
-            android:id="@+id/tvSwipeHint"
+            android:id="@+id/swipeHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tap to reveal next card"
@@ -99,7 +99,7 @@
 
         <!-- card counter -->
         <TextView
-            android:id="@+id/tvCardCounter"
+            android:id="@+id/cardCounter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1 / 5"
@@ -110,7 +110,7 @@
 
         <!-- back button -->
         <Button
-            android:id="@+id/btnBackToPacks"
+            android:id="@+id/backButtonToPacks"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Back"

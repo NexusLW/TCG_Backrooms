@@ -11,7 +11,7 @@
     <!--the full card image, tap it to go back-->
     <!--la imagen completa de la carta, tocala para volver-->
     <ImageView
-        android:id="@+id/ivDetail"
+        android:id="@+id/detailImage"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -21,7 +21,7 @@
 
     <!--card name-->
     <TextView
-        android:id="@+id/tvDetailName"
+        android:id="@+id/detailName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
@@ -33,7 +33,7 @@
     <!--rarity label, color set from activity-->
     <!--etiqueta de rareza, color puesto desde la actividad-->
     <TextView
-        android:id="@+id/tvDetailRarity"
+        android:id="@+id/detailRarity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""

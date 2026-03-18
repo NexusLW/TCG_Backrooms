@@ -23,7 +23,7 @@
         <!-- card name input -->
         <!-- campo de nombre de carta -->
         <EditText
-            android:id="@+id/etCardName"
+            android:id="@+id/cardNameInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Card name"
@@ -63,7 +63,7 @@
         <!-- image preview, shows card back until the user picks an image -->
         <!-- vista previa de imagen, muestra el reverso hasta que el usuario elija una imagen -->
         <ImageView
-            android:id="@+id/ivPreview"
+            android:id="@+id/previewImage"
             android:layout_width="160dp"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
@@ -73,7 +73,7 @@
         <!-- button that opens the system photo picker -->
         <!-- boton que abre el selector de fotos del sistema -->
         <Button
-            android:id="@+id/btnPickImage"
+            android:id="@+id/pickImageButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Pick Image"
@@ -82,7 +82,7 @@
         <!-- save button commits everything to the database -->
         <!-- el boton guardar confirma todo a la base de datos -->
         <Button
-            android:id="@+id/btnSave"
+            android:id="@+id/saveButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Save Card"
@@ -91,7 +91,7 @@
         <!-- cancel button closes without saving -->
         <!-- el boton cancelar cierra sin guardar -->
         <Button
-            android:id="@+id/btnBack"
+            android:id="@+id/backButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Cancel"/>

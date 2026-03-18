@@ -11,9 +11,9 @@ class CardDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_card_detail)
 
-        val ivDetail: ImageView = findViewById(R.id.ivDetail)
-        val tvDetailName: TextView = findViewById(R.id.tvDetailName)
-        val tvDetailRarity: TextView = findViewById(R.id.tvDetailRarity)
+        val detailImage: ImageView = findViewById(R.id.detailImage)
+        val detailName: TextView = findViewById(R.id.detailName)
+        val detailRarity: TextView = findViewById(R.id.detailRarity)
 
         //grab the card data passed from the adapter
         //obtener los datos de la carta pasados desde el adaptador
@@ -25,15 +25,15 @@ class CardDetailActivity : AppCompatActivity() {
         //resolver el nombre del drawable a un id de recurso real
         val resId = resources.getIdentifier(imageFilename, "drawable", packageName)
         if (resId != 0) {
-            ivDetail.setImageResource(resId)
+            detailImage.setImageResource(resId)
         } else {
             //fallback to card back if the image is missing
             //fallback al reverso si falta la imagen
-            ivDetail.setImageResource(R.drawable.card_back)
+            detailImage.setImageResource(R.drawable.card_back)
         }
 
-        tvDetailName.text = cardName
-        tvDetailRarity.text = rarity
+        detailName.text = cardName
+        detailRarity.text = rarity
 
         //set rarity color
         //poner color de rareza
@@ -43,10 +43,10 @@ class CardDetailActivity : AppCompatActivity() {
             "legendary" -> R.color.rarity_legendary
             else -> R.color.rarity_common
         }
-        tvDetailRarity.setTextColor(getColor(rarityColor))
+        detailRarity.setTextColor(getColor(rarityColor))
 
         //tapping anywhere on the screen closes this activity
         //tocar cualquier parte de la pantalla cierra esta actividad
-        ivDetail.setOnClickListener { finish() }
+        detailImage.setOnClickListener { finish() }
     }
 }

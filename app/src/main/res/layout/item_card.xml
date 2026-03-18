@@ -17,7 +17,7 @@
         <!--card image-->
         <!--imagen de la carta-->
         <ImageView
-            android:id="@+id/ivCard"
+            android:id="@+id/cardImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"/>
@@ -25,7 +25,7 @@
         <!--count badge, only visible when count is more than 1-->
         <!--insignia de cantidad, solo visible cuando el count es mayor a 1-->
         <TextView
-            android:id="@+id/tvCount"
+            android:id="@+id/countLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top|end"
@@ -44,7 +44,7 @@
 
     <!--card name-->
     <TextView
-        android:id="@+id/tvCardName"
+        android:id="@+id/cardName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""
@@ -57,7 +57,7 @@
 
     <!--rarity label-->
     <TextView
-        android:id="@+id/tvRarity"
+        android:id="@+id/rarityLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""

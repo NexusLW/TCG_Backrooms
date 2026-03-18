@@ -135,7 +135,7 @@ class DatabaseHelper(context: Context) :
         }
     }
 
-    //-------User methods / Metodos de usuario-------
+    //User functions / Funciones de usuario
 
     //hashes a string using md5
     //hashea una cadena usando md5

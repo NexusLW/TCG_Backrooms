@@ -10,7 +10,7 @@
 
     <!--app title-->
     <TextView
-        android:id="@+id/tvAppTitle"
+        android:id="@+id/appTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="BACKROOMS TCG"
@@ -41,7 +41,7 @@
         <!--title changes between "Welcome Back" and "Create Account" depending on mode-->
         <!--el titulo cambia entre los dos modos desde LoginActivity-->
         <TextView
-            android:id="@+id/tvTitle"
+            android:id="@+id/titleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Welcome Back"
@@ -52,7 +52,7 @@
 
         <!--username input-->
         <EditText
-            android:id="@+id/etUsername"
+            android:id="@+id/usernameInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Username"
@@ -66,7 +66,7 @@
 
         <!--password input-->
         <EditText
-            android:id="@+id/etPassword"
+            android:id="@+id/passwordInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
@@ -80,7 +80,7 @@
 
         <!--main button - logs in or registers depending on mode-->
         <Button
-            android:id="@+id/btnAccept"
+            android:id="@+id/acceptButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Log In"
@@ -90,7 +90,7 @@
 
         <!--closes the app-->
         <Button
-            android:id="@+id/btnCancel"
+            android:id="@+id/cancelButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Cancel"
@@ -100,7 +100,7 @@
 
         <!--tapping this switches between login and register mode-->
         <TextView
-            android:id="@+id/tvSwitch"
+            android:id="@+id/switchMode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="No account? Register here"

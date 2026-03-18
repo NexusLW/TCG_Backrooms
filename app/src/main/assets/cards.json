@@ -205,7 +205,7 @@
   },
   {
     "name": "Cashew Water",
-    "imageFilename": "card_cashew_water.png",
+    "imageFilename": "card_cashew_water",
     "rarity": "uncommon",
     "category": "items"
   }

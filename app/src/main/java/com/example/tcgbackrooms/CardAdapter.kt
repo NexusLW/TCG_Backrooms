@@ -34,14 +34,14 @@ class CardAdapter(
     //-------View holders / View holders-------
 
     inner class HeaderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvHeader: TextView = itemView.findViewById(R.id.tvSectionHeader)
+        val tvHeader: TextView = itemView.findViewById(R.id.sectionHeader)
     }
 
     inner class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val ivCard: ImageView = itemView.findViewById(R.id.ivCard)
-        val tvCardName: TextView = itemView.findViewById(R.id.tvCardName)
-        val tvRarity: TextView = itemView.findViewById(R.id.tvRarity)
-        val tvCount: TextView = itemView.findViewById(R.id.tvCount)
+        val cardImage: ImageView = itemView.findViewById(R.id.cardImage)
+        val cardName: TextView = itemView.findViewById(R.id.cardName)
+        val rarityLabel: TextView = itemView.findViewById(R.id.rarityLabel)
+        val countLabel: TextView = itemView.findViewById(R.id.countLabel)
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -79,18 +79,18 @@ class CardAdapter(
     //maneja toda la logica de binding de la carta
     private fun bindCard(holder: CardViewHolder, card: Card) {
         if (card.unlocked) {
-            loadCardImage(holder.ivCard, card.imageFilename)
+            loadCardImage(holder.cardImage, card.imageFilename)
 
-            holder.tvCardName.text = card.name
-            holder.tvRarity.text = card.rarity
+            holder.cardName.text = card.name
+            holder.rarityLabel.text = card.rarity
 
             //show count badge if the user has more than one copy
             //mostrar insignia de cantidad si el usuario tiene mas de una copia
             if (card.count > 1) {
-                holder.tvCount.visibility = View.VISIBLE
-                holder.tvCount.text = "x${card.count}"
+                holder.countLabel.visibility = View.VISIBLE
+                holder.countLabel.text = "x${card.count}"
             } else {
-                holder.tvCount.visibility = View.GONE
+                holder.countLabel.visibility = View.GONE
             }
 
             //set rarity color on the label
@@ -101,7 +101,7 @@ class CardAdapter(
                 "legendary" -> R.color.rarity_legendary
                 else -> R.color.rarity_common
             }
-            holder.tvRarity.setTextColor(context.getColor(rarityColor))
+            holder.rarityLabel.setTextColor(context.getColor(rarityColor))
 
             //tap to open fullscreen detail
             //tap para abrir detalle en pantalla completa
@@ -128,11 +128,11 @@ class CardAdapter(
         } else {
             //locked card - show back and hide everything personal
             //carta bloqueada - mostrar reverso y ocultar todo lo personal
-            holder.ivCard.setImageResource(R.drawable.card_back)
-            holder.tvCardName.text = "???"
-            holder.tvRarity.text = "???"
-            holder.tvRarity.setTextColor(context.getColor(R.color.rarity_common))
-            holder.tvCount.visibility = View.GONE
+            holder.cardImage.setImageResource(R.drawable.card_back)
+            holder.cardName.text = "???"
+            holder.rarityLabel.text = "???"
+            holder.rarityLabel.setTextColor(context.getColor(R.color.rarity_common))
+            holder.countLabel.visibility = View.GONE
 
             holder.itemView.setOnClickListener(null)
             holder.itemView.setOnLongClickListener(null)

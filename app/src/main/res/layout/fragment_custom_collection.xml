@@ -20,7 +20,7 @@
     <!-- fab in the bottom right corner opens CreateCardActivity -->
     <!-- fab en la esquina inferior derecha abre CreateCardActivity -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabCreateCard"
+        android:id="@+id/createCardButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"

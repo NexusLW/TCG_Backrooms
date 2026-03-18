@@ -20,7 +20,7 @@
     <!--section title like "Levels", "Entities", "Items"-->
     <!--titulo de seccion como "Levels", "Entities", "Items"-->
     <TextView
-        android:id="@+id/tvSectionHeader"
+        android:id="@+id/sectionHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Levels"

@@ -28,7 +28,7 @@
         <!--welcome text, filled dynamically from MainActivity-->
         <!--texto de bienvenida, rellenado dinamicamente desde MainActivity-->
         <TextView
-            android:id="@+id/tvWelcome"
+            android:id="@+id/welcomeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="welcome, wanderer"

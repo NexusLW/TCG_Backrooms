@@ -48,7 +48,7 @@ class CustomCollectionFragment : Fragment() {
 
         db = DatabaseHelper(requireContext())
         recyclerView = view.findViewById(R.id.recyclerViewCustom)
-        fab = view.findViewById(R.id.fabCreateCard)
+        fab = view.findViewById(R.id.createCardButton)
 
         //grid with 3 columns, headers span all 3
         //rejilla de 3 columnas, las cabeceras ocupan las 3

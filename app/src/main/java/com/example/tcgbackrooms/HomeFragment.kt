@@ -23,12 +23,12 @@ class HomeFragment : Fragment() {
     private lateinit var packsContainer: LinearLayout
     private lateinit var cardRevealContainer: LinearLayout
     private lateinit var packBig: FrameLayout
-    private lateinit var tvPacksInfo: TextView
-    private lateinit var tvPacksStatus: TextView
+    private lateinit var packsInfo: TextView
+    private lateinit var packsStatus: TextView
     private lateinit var cardStack: FrameLayout
-    private lateinit var tvSwipeHint: TextView
-    private lateinit var tvCardCounter: TextView
-    private lateinit var btnBackToPacks: View
+    private lateinit var swipeHint: TextView
+    private lateinit var cardCounter: TextView
+    private lateinit var backButtonToPacks: View
 
     //rarity distribution weights - add up to 100 to use as percentages
     //pesos de distribucion de rareza - suman 100 para usar como porcentajes
@@ -58,12 +58,12 @@ class HomeFragment : Fragment() {
         packsContainer = view.findViewById(R.id.packsContainer)
         cardRevealContainer = view.findViewById(R.id.cardRevealContainer)
         packBig = view.findViewById(R.id.packBig)
-        tvPacksInfo = view.findViewById(R.id.tvPacksInfo)
-        tvPacksStatus = view.findViewById(R.id.tvPacksStatus)
+        packsInfo = view.findViewById(R.id.packsInfo)
+        packsStatus = view.findViewById(R.id.packsStatus)
         cardStack = view.findViewById(R.id.cardStack)
-        tvSwipeHint = view.findViewById(R.id.tvSwipeHint)
-        tvCardCounter = view.findViewById(R.id.tvCardCounter)
-        btnBackToPacks = view.findViewById(R.id.btnBackToPacks)
+        swipeHint = view.findViewById(R.id.swipeHint)
+        cardCounter = view.findViewById(R.id.cardCounter)
+        backButtonToPacks = view.findViewById(R.id.backButtonToPacks)
 
         //display initial pack count based on current user's regeneration
         //mostrar conteo inicial de paquetes basado en regeneracion del usuario actual
@@ -79,7 +79,7 @@ class HomeFragment : Fragment() {
 
         //back button returns to pack screen and resets state
         //boton atras vuelve a la pantalla de paquetes y reinicia el estado
-        btnBackToPacks.setOnClickListener { backToPacks() }
+        backButtonToPacks.setOnClickListener { backToPacks() }
     }
 
     //refresh pack display when returning to this tab (packs may have regenerated)
@@ -101,7 +101,7 @@ class HomeFragment : Fragment() {
         //retroalimentacion visual: el paquete se desvanece cuando se agota
         packBig.alpha = if (packs > 0) 1.0f else 0.4f
 
-        tvPacksInfo.text = if (packs > 0) "$packs packs remaining" else "come back later..."
+        packsInfo.text = if (packs > 0) "$packs packs remaining" else "come back later..."
     }
 
     //initiates pack opening: shake animation followed by card reveal
@@ -134,14 +134,14 @@ class HomeFragment : Fragment() {
         //try to consume a pack from the user's account (respects hourly regeneration)
         //intentar consumir un paquete de la cuenta del usuario (respeta regeneracion por hora)
         if (!db.usePackForUser(userId)) {
-            tvPacksStatus.text = "no packs available"
+            packsStatus.text = "no packs available"
             return
         }
 
         val allCards = db.getAllCards()
 
         if (allCards.isEmpty()) {
-            tvPacksStatus.text = "no cards found. check cards.json"
+            packsStatus.text = "no cards found. check cards.json"
             return
         }
 
@@ -257,11 +257,11 @@ class HomeFragment : Fragment() {
             cardStack.getChildAt(i).visibility = if (i == currentCardIndex) View.VISIBLE else View.GONE
         }
 
-        tvCardCounter.text = "${currentCardIndex + 1} / 5"
+        cardCounter.text = "${currentCardIndex + 1} / 5"
 
         //hide tap hint on last card since there's no next card
         //ocultar pista de tap en la ultima carta ya que no hay siguiente
-        tvSwipeHint.visibility = if (currentCardIndex == 4) View.GONE else View.VISIBLE
+        swipeHint.visibility = if (currentCardIndex == 4) View.GONE else View.VISIBLE
     }
 
     //advances to next card if available (max is 4, so 5 total cards)

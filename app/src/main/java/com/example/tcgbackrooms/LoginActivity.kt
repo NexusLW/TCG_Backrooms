@@ -12,14 +12,14 @@ class LoginActivity : AppCompatActivity() {
 
     //-------Views / Vistas-------
 
-    private lateinit var etUsername: EditText
-    private lateinit var etPassword: EditText
-    private lateinit var btnAccept: Button
-    private lateinit var btnCancel: Button
+    private lateinit var usernameInput: EditText
+    private lateinit var passwordInput: EditText
+    private lateinit var acceptButton: Button
+    private lateinit var cancelButton: Button
     //this label switches the form between login and register mode
     //esta etiqueta cambia el formulario entre modo login y registro
-    private lateinit var tvSwitch: TextView
-    private lateinit var tvTitle: TextView
+    private lateinit var switchMode: TextView
+    private lateinit var titleText: TextView
 
     //tracks whether we are in register mode or login mode
     //controla si estamos en modo registro o modo login
@@ -33,18 +33,18 @@ class LoginActivity : AppCompatActivity() {
 
         db = DatabaseHelper(this)
 
-        etUsername = findViewById(R.id.etUsername)
-        etPassword = findViewById(R.id.etPassword)
-        btnAccept = findViewById(R.id.btnAccept)
-        btnCancel = findViewById(R.id.btnCancel)
-        tvSwitch = findViewById(R.id.tvSwitch)
-        tvTitle = findViewById(R.id.tvTitle)
+        usernameInput = findViewById(R.id.usernameInput)
+        passwordInput = findViewById(R.id.passwordInput)
+        acceptButton = findViewById(R.id.acceptButton)
+        cancelButton = findViewById(R.id.cancelButton)
+        switchMode = findViewById(R.id.switchMode)
+        titleText = findViewById(R.id.titleText)
 
         //accept button handles both login and register depending on current mode
         //el botón aceptar maneja tanto login como registro según el modo actual
-        btnAccept.setOnClickListener {
-            val username = etUsername.text.toString().trim()
-            val password = etPassword.text.toString().trim()
+        acceptButton.setOnClickListener {
+            val username = usernameInput.text.toString().trim()
+            val password = passwordInput.text.toString().trim()
 
             if (username.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Fill in all fields / Rellena todos los campos", Toast.LENGTH_SHORT).show()
@@ -60,13 +60,13 @@ class LoginActivity : AppCompatActivity() {
 
         //cancel button closes the app
         //el botón cancelar cierra la aplicación
-        btnCancel.setOnClickListener {
+        cancelButton.setOnClickListener {
             finish()
         }
 
         //tapping the switch label toggles between login and register mode
         //pulsar la etiqueta alterna entre modo login y registro
-        tvSwitch.setOnClickListener {
+        switchMode.setOnClickListener {
             isRegisterMode = !isRegisterMode
             updateUi()
         }
@@ -112,13 +112,13 @@ class LoginActivity : AppCompatActivity() {
     //actualiza el texto de la ui según el modo actual
     private fun updateUi() {
         if (isRegisterMode) {
-            tvTitle.text = "Create Account"
-            btnAccept.text = "Register"
-            tvSwitch.text = "Already have an account? Log in"
+            titleText.text = "Create Account"
+            acceptButton.text = "Register"
+            switchMode.text = "Already have an account? Log in"
         } else {
-            tvTitle.text = "Welcome Back"
-            btnAccept.text = "Log In"
-            tvSwitch.text = "No account? Register here"
+            titleText.text = "Welcome Back"
+            acceptButton.text = "Log In"
+            switchMode.text = "No account? Register here"
         }
     }
 }
