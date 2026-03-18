@@ -18,7 +18,7 @@
     "category": "levels"
   },
   {
-    "name": "Level 1 - Lurking Danger",
+    "name": "Level 1 - Habitable Zone",
     "imageFilename": "card_level1",
     "rarity": "common",
     "category": "levels"
@@ -156,12 +156,6 @@
     "category": "entities"
   },
   {
-    "name": "Insanity",
-    "imageFilename": "card_insanity",
-    "rarity": "legendary",
-    "category": "entities"
-  },
-  {
     "name": "Almond Water",
     "imageFilename": "card_almond_water",
     "rarity": "common",
@@ -186,32 +180,14 @@
     "category": "items"
   },
   {
-    "name": "Deuclidator",
-    "imageFilename": "card_deuclidator",
-    "rarity": "legendary",
-    "category": "items"
-  },
-  {
     "name": "Firesalt",
     "imageFilename": "card_firesalt",
     "rarity": "uncommon",
     "category": "items"
   },
   {
-    "name": "Bottled Lightning",
-    "imageFilename": "card_bottled_lightning",
-    "rarity": "rare",
-    "category": "items"
-  },
-  {
-    "name": "Memory Milk",
-    "imageFilename": "card_memory_milk",
-    "rarity": "rare",
-    "category": "items"
-  },
-  {
-    "name": "M.E.G. Canteen",
-    "imageFilename": "card_meg_canteen",
+    "name": "Elevators",
+    "imageFilename": "card_elevators",
     "rarity": "common",
     "category": "items"
   },
@@ -222,15 +198,15 @@
     "category": "items"
   },
   {
-    "name": "No-Clip Drug",
-    "imageFilename": "card_noclip_drug",
+    "name": "Bottle 'o Void",
+    "imageFilename": "card_bottle_ovoid",
     "rarity": "legendary",
     "category": "items"
   },
   {
-    "name": "Jerry's Map",
-    "imageFilename": "card_jerrys_map",
-    "rarity": "rare",
+    "name": "Cashew Water",
+    "imageFilename": "card_cashew_water.png",
+    "rarity": "uncommon",
     "category": "items"
   }
 ]
