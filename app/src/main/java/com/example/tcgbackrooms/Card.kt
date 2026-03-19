@@ -5,8 +5,8 @@ package com.example.tcgbackrooms
 data class Card(
     val id: Int,
     val name: String,
-    //drawable resource name, e.g. "card_lobby"
-    //nombre del recurso drawable, ej. "card_lobby"
+    //drawable resource name("card_lobby")
+    //nombre del recurso drawable("card_lobby")
     val imageFilename: String,
     //rarity: common, uncommon, rare, legendary
     //rareza: common, uncommon, rare, legendary

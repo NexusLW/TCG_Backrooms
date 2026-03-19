@@ -40,6 +40,7 @@ class DatabaseHelper(context: Context) :
         private const val CARD_IMAGE = "image_filename"
         private const val CARD_RARITY = "rarity"
         private const val CARD_CATEGORY = "category"
+
         //flag that marks a card as user-created so it never enters the pack pool
         //bandera que marca una carta como creada por el usuario para que nunca entre en los sobres
         private const val CARD_IS_CUSTOM = "is_custom"
@@ -49,6 +50,7 @@ class DatabaseHelper(context: Context) :
         private const val UC_ID = "id"
         private const val UC_USER_ID = "user_id"
         private const val UC_CARD_ID = "card_id"
+
         //count replaces unlocked - 0 means locked, anything above is how many copies
         //count reemplaza unlocked - 0 significa bloqueada, cualquier numero mayor es cuantas copias
         private const val UC_COUNT = "count"
@@ -112,7 +114,7 @@ class DatabaseHelper(context: Context) :
             //leer tod0 el archivo json como string
             val json = ctx.assets.open("cards.json")
                 .bufferedReader()
-                .use { it.readText() }
+                .use {it.readText()}
 
             val array = JSONArray(json)
 
@@ -271,7 +273,13 @@ class DatabaseHelper(context: Context) :
 
     //inserts a new custom card definition and immediately gives one copy to the user
     //inserta una nueva carta personalizada y le da una copia al usuario de inmediato
-    fun addCustomCard(userId: Int, name: String, imagePath: String, rarity: String, category: String): Int {
+    fun addCustomCard(
+        userId: Int,
+        name: String,
+        imagePath: String,
+        rarity: String,
+        category: String
+    ): Int {
         val db = writableDatabase
         val cv = ContentValues()
         cv.put(CARD_NAME, name)
@@ -326,8 +334,10 @@ class DatabaseHelper(context: Context) :
         cursor.close()
     }
 
-    //removes one copy of a card from the user, if count reaches 0 the card becomes locked again
-    //elimina una copia de una carta del usuario, si count llega a 0 la carta vuelve a estar bloqueada
+    //removes one copy of a card from the user
+    //if it was the last copy the row is deleted from the database entirely
+    //elimina una copia de una carta del usuario
+    //si era la ultima copia la fila se elimina completamente de la base de datos
     fun removeCardFromUser(userId: Int, cardId: Int) {
         val db = writableDatabase
 
@@ -340,15 +350,25 @@ class DatabaseHelper(context: Context) :
 
         if (cursor.moveToFirst()) {
             val currentCount = cursor.getInt(1)
-            val cv = ContentValues()
-            //clamp to 0, never go negative
-            //clamp a 0, nunca ir a negativo
-            cv.put(UC_COUNT, maxOf(0, currentCount - 1))
-            db.update(
-                TABLE_USER_CARDS, cv,
-                "$UC_USER_ID=? AND $UC_CARD_ID=?",
-                arrayOf(userId.toString(), cardId.toString())
-            )
+            if (currentCount <= 1) {
+                //last copy - delete the row so the card is truly gone from the database
+                //ultima copia - borrar la fila para que la carta desaparezca de la base de datos
+                db.delete(
+                    TABLE_USER_CARDS,
+                    "$UC_USER_ID=? AND $UC_CARD_ID=?",
+                    arrayOf(userId.toString(), cardId.toString())
+                )
+            } else {
+                //user still has more copies, just decrement the count
+                //el usuario todavia tiene mas copias, solo decrementar el count
+                val cv = ContentValues()
+                cv.put(UC_COUNT, currentCount - 1)
+                db.update(
+                    TABLE_USER_CARDS, cv,
+                    "$UC_USER_ID=? AND $UC_CARD_ID=?",
+                    arrayOf(userId.toString(), cardId.toString())
+                )
+            }
         }
         cursor.close()
     }
