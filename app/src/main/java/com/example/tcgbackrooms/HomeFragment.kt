@@ -1,5 +1,6 @@
 package com.example.tcgbackrooms
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -128,6 +129,7 @@ class HomeFragment : Fragment() {
 
     //core pack opening logic: deduct pack from user, pick 5 cards, add to collection
     //logica principal de apertura: deducir paquete del usuario, elegir 5 cartas, anadir a coleccion
+    @SuppressLint("SetTextI18n")
     private fun openPack() {
         val userId = (activity as MainActivity).userId
 
@@ -250,6 +252,7 @@ class HomeFragment : Fragment() {
 
     //updates card display: only current index visible, updates counter and hint visibility
     //actualiza visualizacion de carta: solo el indice actual visible, actualiza contador y visibilidad de pista
+    @SuppressLint("SetTextI18n")
     private fun updateCardDisplay() {
         //hide all cards except current
         //ocultar todas las cartas excepto la actual
