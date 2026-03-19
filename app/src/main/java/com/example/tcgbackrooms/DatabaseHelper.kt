@@ -97,7 +97,7 @@ class DatabaseHelper(context: Context) :
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         //drop everything and start fresh on version bump
-        //borrar todo y empezar de cero si sube la version
+        //borrar t0do y empezar de cero si sube la version
         db.execSQL("DROP TABLE IF EXISTS $TABLE_USER_CARDS")
         db.execSQL("DROP TABLE IF EXISTS $TABLE_CARDS")
         db.execSQL("DROP TABLE IF EXISTS $TABLE_USERS")
@@ -109,7 +109,7 @@ class DatabaseHelper(context: Context) :
     private fun seedCards(db: SQLiteDatabase) {
         try {
             //read the whole json file as a string
-            //leer todo el archivo json como string
+            //leer tod0 el archivo json como string
             val json = ctx.assets.open("cards.json")
                 .bufferedReader()
                 .use { it.readText() }
@@ -178,7 +178,7 @@ class DatabaseHelper(context: Context) :
         return userId
     }
 
-    //-------Card methods / Metodos de cartas-------
+    //card methods / metodos de cartas
 
     //returns all cards in the game with the user's count for each
     //devuelve todas las cartas del juego con el conteo del usuario para cada una
@@ -353,7 +353,7 @@ class DatabaseHelper(context: Context) :
         cursor.close()
     }
 
-    //-------Pack methods / Metodos de packs-------
+    //pack methods / metodos de paquetes
 
     //gets available packs for a user, calculating regeneration based on time
     //obtiene paquetes disponibles para un usuario, calculando regeneracion basada en tiempo
