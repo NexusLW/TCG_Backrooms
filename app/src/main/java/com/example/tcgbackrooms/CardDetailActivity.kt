@@ -1,5 +1,6 @@
 package com.example.tcgbackrooms
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
@@ -21,15 +22,34 @@ class CardDetailActivity : AppCompatActivity() {
         val cardName = intent.getStringExtra("cardName") ?: ""
         val rarity = intent.getStringExtra("rarity") ?: ""
 
-        //resolve the drawable name to an actual resource id
-        //resolver el nombre del drawable a un id de recurso real
-        val resId = resources.getIdentifier(imageFilename, "drawable", packageName)
-        if (resId != 0) {
-            detailImage.setImageResource(resId)
+        //custom cards store an absolute file path
+        //while built in cards store a drawable resource name(for example "card_lobby")
+        //we need to handle both cases, same as CardAdapter.loadCardImage does
+        //las cartas personalizadas guardan una ruta absoluta
+        //mientras las cartas predefinidas guardan un nombre de recurso drawable(por ejemplo "card_lobby")
+        //tenemos que manejar ambos casos, igual que hace CardAdapter.loadCardImage
+        if (imageFilename.startsWith("/")) {
+            //absolute path - decode the file directly from internal storage
+            //ruta absoluta - decodificar el archivo directamente del almacenamiento interno
+            val bitmap = BitmapFactory.decodeFile(imageFilename)
+            if (bitmap != null) {
+                detailImage.setImageBitmap(bitmap)
+            } else {
+                //file is missing or unreadable, fall back to card back
+                //el archivo falta o no se puede leer, usar el reverso como fallback
+                detailImage.setImageResource(R.drawable.card_back)
+            }
         } else {
-            //fallback to card back if the image is missing
-            //fallback al reverso si falta la imagen
-            detailImage.setImageResource(R.drawable.card_back)
+            //drawable resource name - resolve it to a resource id at runtime
+            //nombre de recurso drawable - resolver a un id de recurso en tiempo de ejecucion
+            val resId = resources.getIdentifier(imageFilename, "drawable", packageName)
+            if (resId != 0) {
+                detailImage.setImageResource(resId)
+            } else {
+                //drawable name not found in the project, fall back to card back
+                //nombre de drawable no encontrado en el proyecto, usar el reverso como fallback
+                detailImage.setImageResource(R.drawable.card_back)
+            }
         }
 
         detailName.text = cardName
