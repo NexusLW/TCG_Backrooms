@@ -31,8 +31,7 @@ class CardAdapter(
         private const val VIEW_TYPE_CARD = 1
     }
 
-    //-------View holders / View holders-------
-
+    //view holders
     inner class HeaderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvHeader: TextView = itemView.findViewById(R.id.sectionHeader)
     }
