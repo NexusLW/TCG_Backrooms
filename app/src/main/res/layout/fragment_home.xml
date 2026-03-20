@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:background="@color/poolrooms_bg">
 
-    <!-- PACKS VIEW -->
     <LinearLayout
         android:id="@+id/packsContainer"
         android:layout_width="match_parent"
@@ -58,7 +57,6 @@
             android:gravity="center"/>
     </LinearLayout>
 
-    <!-- CARD REVEAL VIEW (hidden by default) -->
     <LinearLayout
         android:id="@+id/cardRevealContainer"
         android:layout_width="match_parent"
@@ -77,16 +75,13 @@
             android:textStyle="bold"
             android:layout_marginBottom="24dp"/>
 
-        <!-- stacked card display -->
         <FrameLayout
             android:id="@+id/cardStack"
             android:layout_width="180dp"
             android:layout_height="280dp"
             android:layout_marginBottom="32dp">
-            <!-- 5 card images will be added here programmatically, stacked -->
         </FrameLayout>
 
-        <!-- tap hint -->
         <TextView
             android:id="@+id/swipeHint"
             android:layout_width="wrap_content"
@@ -97,7 +92,6 @@
             android:fontFamily="monospace"
             android:layout_marginBottom="16dp"/>
 
-        <!-- card counter -->
         <TextView
             android:id="@+id/cardCounter"
             android:layout_width="wrap_content"
@@ -108,7 +102,6 @@
             android:fontFamily="monospace"
             android:layout_marginBottom="24dp"/>
 
-        <!-- back button -->
         <Button
             android:id="@+id/backButtonToPacks"
             android:layout_width="150dp"

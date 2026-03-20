@@ -24,10 +24,10 @@ class CardDetailActivity : AppCompatActivity() {
 
         //custom cards store an absolute file path
         //while built in cards store a drawable resource name(for example "card_lobby")
-        //we need to handle both cases, same as CardAdapter.loadCardImage does
+        //this handles both cases, same as CardAdapter.loadCardImage does
         //las cartas personalizadas guardan una ruta absoluta
         //mientras las cartas predefinidas guardan un nombre de recurso drawable(por ejemplo "card_lobby")
-        //tenemos que manejar ambos casos, igual que hace CardAdapter.loadCardImage
+        //esto maneja ambos casos, igual que hace CardAdapter.loadCardImage
         if (imageFilename.startsWith("/")) {
             //absolute path - decode the file directly from internal storage
             //ruta absoluta - decodificar el archivo directamente del almacenamiento interno
@@ -40,8 +40,8 @@ class CardDetailActivity : AppCompatActivity() {
                 detailImage.setImageResource(R.drawable.card_back)
             }
         } else {
-            //drawable resource name - resolve it to a resource id at runtime
-            //nombre de recurso drawable - resolver a un id de recurso en tiempo de ejecucion
+            //drawable resource name: resolve it to a resource id at runtime
+            //nombre de recurso drawable: resolver a un id de recurso en tiempo de ejecucion
             val resId = resources.getIdentifier(imageFilename, "drawable", packageName)
             if (resId != 0) {
                 detailImage.setImageResource(resId)

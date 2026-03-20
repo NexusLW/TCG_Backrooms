@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@color/poolrooms_bg">
 
-    <!-- recyclerview that shows the user's custom cards in a 3-column grid -->
+    <!-- recyclerview that shows the user's custom cards in a 3 column grid -->
     <!-- recyclerview que muestra las cartas personalizadas del usuario en rejilla de 3 columnas -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCustom"

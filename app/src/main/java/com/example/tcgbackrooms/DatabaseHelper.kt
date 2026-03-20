@@ -51,8 +51,8 @@ class DatabaseHelper(context: Context) :
         private const val UC_USER_ID = "user_id"
         private const val UC_CARD_ID = "card_id"
 
-        //count replaces unlocked - 0 means locked, anything above is how many copies
-        //count reemplaza unlocked - 0 significa bloqueada, cualquier numero mayor es cuantas copias
+        //count replaces unlocked: 0 means locked, anything above is how many copies
+        //count reemplaza unlocked: 0 significa bloqueada, cualquier numero mayor es cuantas copias
         private const val UC_COUNT = "count"
     }
 
@@ -81,8 +81,8 @@ class DatabaseHelper(context: Context) :
                     "$CARD_IS_CUSTOM INTEGER DEFAULT 0)"
         )
 
-        //create user_cards table - unique constraint prevents duplicate rows per user/card pair
-        //crear tabla user_cards - la restriccion unique evita filas duplicadas por par usuario/carta
+        //create user_cards table: unique constraint prevents duplicate rows per user/card pair
+        //crear tabla user_cards: la restriccion unique evita filas duplicadas por par usuario/carta
         db.execSQL(
             "CREATE TABLE $TABLE_USER_CARDS (" +
                     "$UC_ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -107,14 +107,14 @@ class DatabaseHelper(context: Context) :
     }
 
     //reads cards.json from assets and inserts each card into the cards table
-    //lee cards.json de assets e inserta cada carta en la tabla cards
+    //lee cards.json de assets y inserta cada carta en la tabla cards
     private fun seedCards(db: SQLiteDatabase) {
         try {
             //read the whole json file as a string
             //leer tod0 el archivo json como string
             val json = ctx.assets.open("cards.json")
                 .bufferedReader()
-                .use {it.readText()}
+                .use { it.readText() }
 
             val array = JSONArray(json)
 
@@ -137,7 +137,7 @@ class DatabaseHelper(context: Context) :
         }
     }
 
-    //User functions / Funciones de usuario
+    //user functions / funciones de usuario
 
     //hashes a string using md5
     //hashea una cadena usando md5
@@ -297,8 +297,8 @@ class DatabaseHelper(context: Context) :
         return cardId
     }
 
-    //adds one copy of a card to the user - inserts a row if first time, increments count if not
-    //anade una copia de una carta al usuario - inserta fila si es la primera vez, incrementa count si no
+    //adds one copy of a card to the user: inserts a row if first time, increments count if not
+    //anade una copia de una carta al usuario: inserta fila si es la primera vez, incrementa count si no
     fun addCardToUser(userId: Int, cardId: Int) {
         val db = writableDatabase
 

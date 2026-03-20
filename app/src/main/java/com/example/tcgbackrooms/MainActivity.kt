@@ -51,11 +51,10 @@ class MainActivity : AppCompatActivity() {
         }.attach()
     }
 
-    //-------Pager adapter / Adaptador del pager-------
-
     //simple adapter that holds the three fragments
     //adaptador simple que contiene los tres fragmentos
-    private inner class MainPagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity) {
+    private inner class MainPagerAdapter(activity: AppCompatActivity) :
+        FragmentStateAdapter(activity) {
 
         override fun getItemCount(): Int = 3
 

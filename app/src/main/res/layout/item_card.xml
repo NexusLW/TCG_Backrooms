@@ -43,6 +43,7 @@
     </FrameLayout>
 
     <!--card name-->
+    <!--nombre cartas-->
     <TextView
         android:id="@+id/cardName"
         android:layout_width="match_parent"
@@ -56,6 +57,7 @@
         android:paddingTop="4dp"/>
 
     <!--rarity label-->
+    <!--etiqueta de rareza-->
     <TextView
         android:id="@+id/rarityLabel"
         android:layout_width="match_parent"
