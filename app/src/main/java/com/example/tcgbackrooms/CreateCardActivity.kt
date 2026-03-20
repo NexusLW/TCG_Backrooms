@@ -22,18 +22,18 @@ class CreateCardActivity : AppCompatActivity() {
 
     private lateinit var db: DatabaseHelper
 
-    //absolute path to the image the user picked, empty if they skipped it
-    //ruta absoluta a la imagen elegida por el usuario, vacia si no eligio ninguna
+    //absolute path to the image the user creates, empty if they skipped it
+    //ruta absoluta a la imagen creada por el usuario, vacia si no eligio ninguna
     private var savedImagePath: String = ""
 
-    //photo picker launcher - fires when the user selects an image from the gallery
-    //lanzador del selector de fotos - se dispara cuando el usuario elige una imagen de la galeria
+    //photo picker launcher: fires when the user selects an image from the gallery
+    //lanzador del selector de fotos: se dispara cuando el usuario elige una imagen de la galeria
     private val pickImage = registerForActivityResult(
         ActivityResultContracts.PickVisualMedia()
     ) { uri ->
         if (uri != null) {
-            //copy the image to internal storage so we own the file and the uri doesnt expire
-            //copiar la imagen al almacenamiento interno para que tengamos el archivo y la uri no expire
+            //copy the image to internal storage so the app has the file and the path doesn't expire
+            //copiar la imagen al almacenamiento interno para que la applicacion tiene el archivo y la ruta no expire
             savedImagePath = copyImageToInternalStorage(uri)
 
             //show a preview of the picked image
@@ -124,10 +124,10 @@ class CreateCardActivity : AppCompatActivity() {
         }
     }
 
-    //copies a gallery uri to a file in internal storage and returns the absolute path
-    //copia una uri de la galeria a un archivo en almacenamiento interno y devuelve la ruta absoluta
-    //we do this because content uris can become invalid after the app restarts
-    //hacemos esto porque las uri de contenido pueden volverse invalidas al reiniciar la app
+    //copies a gallery path to a file in internal storage and returns the absolute path
+    //copia una ruta de la galeria a un archivo en almacenamiento interno y devuelve la ruta absoluta
+    //we do this because content paths can become invalid after the app restarts or if the image gets deleted
+    //hacemos esto porque las rutas de contenido pueden volverse invalidas al reiniciar la app o si la imagen esta borrado
     private fun copyImageToInternalStorage(uri: Uri): String {
         val filename = "custom_${System.currentTimeMillis()}.jpg"
         val file = File(filesDir, filename)

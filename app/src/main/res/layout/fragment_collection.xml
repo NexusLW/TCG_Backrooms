@@ -16,8 +16,8 @@
         android:textStyle="bold"
         android:padding="16dp"/>
 
-    <!--the card grid - locked cards show as ??? and unlocked show the real image-->
-    <!--la cuadricula de cartas - las bloqueadas muestran ??? y las desbloqueadas la imagen real-->
+    <!--the card grid, locked cards show as ??? and unlocked show the real image-->
+    <!--la cuadricula de cartas, las bloqueadas muestran ??? y las desbloqueadas la imagen real-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"

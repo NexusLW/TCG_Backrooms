@@ -56,6 +56,7 @@ class CardAdapter(
                 val view = LayoutInflater.from(context).inflate(R.layout.item_header, parent, false)
                 HeaderViewHolder(view)
             }
+
             else -> {
                 val view = LayoutInflater.from(context).inflate(R.layout.item_card, parent, false)
                 CardViewHolder(view)
@@ -68,6 +69,7 @@ class CardAdapter(
             is CollectionItem.Header -> {
                 (holder as HeaderViewHolder).tvHeader.text = item.title
             }
+
             is CollectionItem.CardItem -> {
                 bindCard(holder as CardViewHolder, item.card)
             }
@@ -159,7 +161,8 @@ class CardAdapter(
             //otherwise try to resolve it as a drawable resource name
             //si no, intentar resolverlo como nombre de recurso drawable
             else -> {
-                val resId = context.resources.getIdentifier(imageFilename, "drawable", context.packageName)
+                val resId =
+                    context.resources.getIdentifier(imageFilename, "drawable", context.packageName)
                 imageView.setImageResource(if (resId != 0) resId else R.drawable.card_back)
             }
         }

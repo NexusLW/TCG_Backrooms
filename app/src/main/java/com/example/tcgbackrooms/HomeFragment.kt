@@ -31,8 +31,8 @@ class HomeFragment : Fragment() {
     private lateinit var cardCounter: TextView
     private lateinit var backButtonToPacks: View
 
-    //rarity distribution weights - add up to 100 to use as percentages
-    //pesos de distribucion de rareza - suman 100 para usar como porcentajes
+    //rarity distribution weights: add up to 100 to use as percentages
+    //pesos de distribucion de rareza: suman 100 para usar como porcentajes
     private val WEIGHT_COMMON = 80
     private val WEIGHT_UNCOMMON = 12
     private val WEIGHT_RARE = 7
@@ -41,11 +41,16 @@ class HomeFragment : Fragment() {
     //tracks which card is currently visible (0-4)
     //rastrea cual carta es actualmente visible (0-4)
     private var currentCardIndex = 0
+
     //stores the 5 cards picked from a pack, cleared after closing reveal screen
     //almacena las 5 cartas elegidas de un paquete, se limpia al cerrar la pantalla
     private var pickedCards = mutableListOf<Card>()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
@@ -147,7 +152,7 @@ class HomeFragment : Fragment() {
             return
         }
 
-        //pick 5 cards using rarity-weighted random selection
+        //pick 5 cards using random selection of rarity weighted
         //elegir 5 cartas usando seleccion aleatoria ponderada por rareza
         pickedCards.clear()
         repeat(5) {
@@ -177,8 +182,8 @@ class HomeFragment : Fragment() {
         }
     }
 
-    //picks a card from the rarity pool; if pool is empty, picks any random card
-    //elige una carta del pool de rareza; si pool esta vacio, elige cualquier carta aleatoria
+    //picks a card from the rarity pool. if pool is empty, picks any random card
+    //elige una carta del pool de rareza. si pool esta vacio, elige cualquier carta aleatoria
     private fun pickCard(allCards: List<Card>): Card {
         val rarity = pickRarity()
         val pool = allCards.filter { it.rarity == rarity }
@@ -244,7 +249,11 @@ class HomeFragment : Fragment() {
             //otherwise resolve the filename as a drawable resource name
             //si no, resolver el nombre de archivo como nombre de recurso drawable
             else -> {
-                val resId = requireContext().resources.getIdentifier(imageFilename, "drawable", requireContext().packageName)
+                val resId = requireContext().resources.getIdentifier(
+                    imageFilename,
+                    "drawable",
+                    requireContext().packageName
+                )
                 imageView.setImageResource(if (resId != 0) resId else R.drawable.card_back)
             }
         }
@@ -257,7 +266,8 @@ class HomeFragment : Fragment() {
         //hide all cards except current
         //ocultar todas las cartas excepto la actual
         for (i in 0 until cardStack.childCount) {
-            cardStack.getChildAt(i).visibility = if (i == currentCardIndex) View.VISIBLE else View.GONE
+            cardStack.getChildAt(i).visibility =
+                if (i == currentCardIndex) View.VISIBLE else View.GONE
         }
 
         cardCounter.text = "${currentCardIndex + 1} / 5"

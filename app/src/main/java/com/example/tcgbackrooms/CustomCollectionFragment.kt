@@ -90,8 +90,8 @@ class CustomCollectionFragment : Fragment() {
         loadCards()
     }
 
-    //pulls all custom cards for this user from the db and rebuilds the adapter list
-    //obtiene todas las cartas personalizadas del usuario desde la db y reconstruye la lista del adaptador
+    //this pulls all custom cards for this user from the db and rebuilds the adapter list
+    //esto obtiene todas las cartas personalizadas del usuario desde la db y reconstruye la lista del adaptador
     private fun loadCards() {
         val userId = (activity as MainActivity).userId
         val cards = db.getCustomCardsForUser(userId)

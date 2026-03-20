@@ -10,12 +10,13 @@ import androidx.appcompat.app.AppCompatActivity
 
 class LoginActivity : AppCompatActivity() {
 
-    //-------Views / Vistas-------
+    //views / vistas
 
     private lateinit var usernameInput: EditText
     private lateinit var passwordInput: EditText
     private lateinit var acceptButton: Button
     private lateinit var cancelButton: Button
+
     //this label switches the form between login and register mode
     //esta etiqueta cambia el formulario entre modo login y registro
     private lateinit var switchMode: TextView
@@ -47,7 +48,11 @@ class LoginActivity : AppCompatActivity() {
             val password = passwordInput.text.toString().trim()
 
             if (username.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Fill in all fields / Rellena todos los campos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "Fill in all fields / Rellena todos los campos",
+                    Toast.LENGTH_SHORT
+                ).show()
                 return@setOnClickListener
             }
 
@@ -72,8 +77,8 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    //handles login — checks credentials against the database
-    //maneja el login — comprueba las credenciales contra la base de datos
+    //handles login: checks credentials against the database
+    //maneja el login: comprueba las credenciales contra la base de datos
     private fun handleLogin(username: String, password: String) {
         val userId = db.loginUser(username, password)
 
@@ -86,12 +91,13 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         } else {
-            Toast.makeText(this, "Wrong credentials / Credenciales incorrectas", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Wrong credentials / Credenciales incorrectas", Toast.LENGTH_SHORT)
+                .show()
         }
     }
 
-    //handles registration — creates a new user in the database
-    //maneja el registro — crea un nuevo usuario en la base de datos
+    //handles registration: creates a new user in the database
+    //maneja el registro: crea un nuevo usuario en la base de datos
     private fun handleRegister(username: String, password: String) {
         val success = db.registerUser(username, password)
 
@@ -104,7 +110,11 @@ class LoginActivity : AppCompatActivity() {
         } else {
             //registerUser returns false if the username already exists (UNIQUE constraint)
             //registerUser devuelve false si el nombre de usuario ya existe (restricción UNIQUE)
-            Toast.makeText(this, "Username already taken / Nombre de usuario ya en uso", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                "Username already taken / Nombre de usuario ya en uso",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 

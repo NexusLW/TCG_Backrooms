@@ -45,7 +45,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="tap card to close"
+        android:text="Tap card to close"
         android:textColor="@color/poolrooms_secondary"
         android:textSize="11sp"
         android:fontFamily="monospace"
