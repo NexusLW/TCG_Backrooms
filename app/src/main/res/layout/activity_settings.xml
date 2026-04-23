@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@color/poolrooms_bg">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:textColor="@color/poolrooms_text"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sort collection by"
+        android:textColor="@color/poolrooms_secondary"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp"/>
+
+    <RadioGroup
+        android:id="@+id/sortGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp">
+
+        <RadioButton
+            android:id="@+id/sortByCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Category (default)"
+            android:textColor="@color/poolrooms_text"
+            android:buttonTint="@color/poolrooms_button"/>
+
+        <RadioButton
+            android:id="@+id/sortByName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name (A-Z)"
+            android:textColor="@color/poolrooms_text"
+            android:buttonTint="@color/poolrooms_button"/>
+
+        <RadioButton
+            android:id="@+id/sortByRarity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rarity"
+            android:textColor="@color/poolrooms_text"
+            android:buttonTint="@color/poolrooms_button"/>
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:backgroundTint="@color/poolrooms_button"/>
+
+</LinearLayout>

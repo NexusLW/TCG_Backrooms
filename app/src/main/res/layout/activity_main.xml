@@ -5,41 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/poolrooms_bg">
+    android:background="@color/poolrooms_bg"
+    android:fitsSystemWindows="true">
 
-    <!--top bar with the welcome message-->
-    <!--barra superior con el mensaje de bienvenida-->
-    <LinearLayout
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="?attr/actionBarSize"
         android:background="@color/poolrooms_surface"
-        android:padding="16dp">
+        app:titleTextColor="@color/poolrooms_text"
+        app:title="BACKROOMS TCG"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="BACKROOMS TCG"
-            android:textColor="@color/poolrooms_text"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.2"/>
-
-        <!--welcome text, filled dynamically from MainActivity-->
-        <!--texto de bienvenida, rellenado dinamicamente desde MainActivity-->
-        <TextView
-            android:id="@+id/welcomeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="welcome, wanderer"
-            android:textColor="@color/poolrooms_secondary"
-            android:textSize="12sp"
-            android:fontFamily="monospace"/>
-
-    </LinearLayout>
-
-    <!--tab layout for switching between packs and collection-->
-    <!--tab layout para cambiar entre sobres y coleccion-->
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
@@ -49,8 +25,6 @@
         app:tabSelectedTextColor="@color/poolrooms_text"
         app:tabIndicatorColor="@color/poolrooms_button"/>
 
-    <!--viewpager that holds the two fragments-->
-    <!--viewpager que contiene los dos fragmentos-->
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
         android:layout_width="match_parent"

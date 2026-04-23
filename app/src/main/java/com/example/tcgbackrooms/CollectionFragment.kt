@@ -1,6 +1,7 @@
 package com.example.tcgbackrooms
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,12 +16,7 @@ class CollectionFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: CardAdapter
 
-    //a flat list the adapter reads from, mix of headers and cards
-    //una lista plana que lee el adaptador, mezcla de cabeceras y cartas
     private val itemList = mutableListOf<CardAdapter.CollectionItem>()
-
-    //the order the sections to appear in
-    //el orden en que aparezcan las secciones
     private val categoryOrder = listOf("levels", "entities", "items")
 
     override fun onCreateView(
@@ -37,17 +33,12 @@ class CollectionFragment : Fragment() {
         db = DatabaseHelper(requireContext())
         recyclerView = view.findViewById(R.id.recyclerView)
 
-        //grid with 3 columns, headers span all 3 columns
-        //rejilla de 3 columnas, cabeceras ocupa las 3 columnas
         val layoutManager = GridLayoutManager(requireContext(), 3)
-
-        //tell the layout manager that headers span the full width
-        //decirle al layout manager que las cabeceras ocupan todo el ancho
         layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
                 return when (adapter.getItemViewType(position)) {
-                    0 -> 3 //header takes all 3 columns / la cabecera ocupa las 3 columnas
-                    else -> 1 //card takes 1 column / la carta ocupa 1 columna
+                    0 -> 3
+                    else -> 1
                 }
             }
         }
@@ -55,8 +46,6 @@ class CollectionFragment : Fragment() {
         recyclerView.layoutManager = layoutManager
 
         adapter = CardAdapter(requireContext(), itemList) { card ->
-            //runs when user confirms discard: removes one copy from db then refreshes
-            //se ejecuta cuando el usuario confirma descarte: elimina una copia de la db y refresca
             val userId = (activity as MainActivity).userId
             db.removeCardFromUser(userId, card.id)
             loadCards()
@@ -66,40 +55,51 @@ class CollectionFragment : Fragment() {
         loadCards()
     }
 
-    //refresh every time we come back to this tab
-    //refrescar cada vez que volvemos a esta pestana
     override fun onResume() {
         super.onResume()
         loadCards()
     }
 
-    //builds the sectioned list from the db data and notifies the adapter
-    //construye la lista por secciones desde la db y notifica al adaptador
     @SuppressLint("NotifyDataSetChanged")
     private fun loadCards() {
         val userId = (activity as MainActivity).userId
         val allCards = db.getAllCardsWithCount(userId)
 
-        //group cards by category
-        //agrupar cartas por categoria
-        val grouped = allCards.groupBy { it.category }
+        val sort = requireContext()
+            .getSharedPreferences("settings", Context.MODE_PRIVATE)
+            .getString("collection_sort", "category")
 
         itemList.clear()
 
-        //add each category section in the defined order
-        //anadir cada seccion de categoria en el orden definido
-        for (category in categoryOrder) {
-            val cards = grouped[category] ?: continue
-
-            //add the header for this section
-            //anadir la cabecera para esta seccion
-            val headerTitle = category.replaceFirstChar { it.uppercase() }
-            itemList.add(CardAdapter.CollectionItem.Header(headerTitle))
-
-            //add each card under this header
-            //anadir cada carta bajo esta cabecera
-            for (card in cards) {
-                itemList.add(CardAdapter.CollectionItem.CardItem(card))
+        when (sort) {
+            "name" -> {
+                //flat list sorted alphabetically, single header
+                //lista plana ordenada alfabeticamente, una sola cabecera
+                itemList.add(CardAdapter.CollectionItem.Header("All Cards"))
+                allCards.sortedBy { it.name }.forEach {
+                    itemList.add(CardAdapter.CollectionItem.CardItem(it))
+                }
+            }
+            "rarity" -> {
+                //grouped by rarity in ascending order
+                //agrupadas por rareza en orden ascendente
+                val rarityOrder = listOf("common", "uncommon", "rare", "legendary")
+                val grouped = allCards.groupBy { it.rarity }
+                for (rarity in rarityOrder) {
+                    val cards = grouped[rarity] ?: continue
+                    itemList.add(CardAdapter.CollectionItem.Header(rarity.replaceFirstChar { it.uppercase() }))
+                    cards.forEach { itemList.add(CardAdapter.CollectionItem.CardItem(it)) }
+                }
+            }
+            else -> {
+                //default: grouped by category
+                //por defecto: agrupadas por categoria
+                val grouped = allCards.groupBy { it.category }
+                for (category in categoryOrder) {
+                    val cards = grouped[category] ?: continue
+                    itemList.add(CardAdapter.CollectionItem.Header(category.replaceFirstChar { it.uppercase() }))
+                    cards.forEach { itemList.add(CardAdapter.CollectionItem.CardItem(it)) }
+                }
             }
         }
 
